@@ -16,6 +16,12 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "Home" */ "../components/starter/Form.vue"),
   },
+  {
+    path: "/reusable",
+    name: "reusable",
+    component: () =>
+      import(/* webpackChunkName: "Home" */ "../components/reusable/Form.vue"),
+  },
 ];
 
 const router = new VueRouter({
