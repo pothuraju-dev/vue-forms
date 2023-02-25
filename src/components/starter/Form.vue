@@ -18,6 +18,11 @@
         </div>
 
         <div class="form-group">
+          <label>Telephone:</label>
+          <input type="text" v-model="form.telephone" v-mask="'(###) ###-####'" class="form-control"/>
+        </div>
+
+        <div class="form-group">
           <button
             :disabled="!formIsValid"
             type="submit"
@@ -43,6 +48,7 @@ export default {
         firstName: "",
         lastName: "",
         email: "",
+        telephone:""
       },
       sending: false,
     };

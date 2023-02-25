@@ -6,6 +6,11 @@
       :type="type"
       @input="$emit('input', $event.target.value)"
       class="form-control"
+      :class="{
+        'is-valid': validator && !validator.$error && validator.$dirty,
+        'is-invalid': validator && validator.$error,
+      }"
+      v-mask="mask"
     />
   </div>
 </template>
@@ -27,6 +32,17 @@ export default {
     value: {
       type: String,
       required: true,
+    },
+    mask: {
+      type: String,
+      required: false,
+    },
+    validator: {
+      type: Object,
+      required: false,
+      validator($v) {
+        return Object.prototype.hasOwnProperty.call($v, "$model");
+      },
     },
   },
 };

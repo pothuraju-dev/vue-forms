@@ -1,8 +1,17 @@
 <template>
   <div class="form-group">
     <label>{{ label }}</label>
-    <select class="form-control" @change="$emit('input', $event.target.value)">
-      <option v-for="opt in options" :key="opt.value" :value="opt.value" :selected="value===opt.value">
+    <select class="form-control" 
+    :class="{
+      'is-valid':validator && !validator.$error,
+      'is-invalid':validator && validator.$error
+      }" @change="$emit('input', $event.target.value)">
+      <option
+        v-for="opt in options"
+        :key="opt.value"
+        :value="opt.value"
+        :selected="value === opt.value"
+      >
         {{ opt.label || "No label" }}
       </option>
     </select>
@@ -27,9 +36,16 @@ export default {
       type: String,
       required: true,
     },
-    },
-    mounted() {
-    console.log("BaseSelect")
-  }
+    validator: {
+      type: Object,
+      required: false,
+      validator($v) {
+        return Object.prototype.hasOwnProperty.call($v, "$model")
+      }
+    }
+  },
+  mounted() {
+    console.log("BaseSelect");
+  },
 };
 </script>
