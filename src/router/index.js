@@ -8,7 +8,7 @@ const routes = [
     path: "/",
     name: "Home",
     component: () =>
-      import(/* webpackChunkName: "Home" */ "../components/Home.vue"),
+      import(/* webpackChunkName: "Home" */ "../components/reusable/Form.vue"),
   },
   {
     path: "/starter",

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container py-4">
-   <Header/>
+   <!-- <Header/> -->
     <transition name="fade" mode="out-in">
       <router-view :key="rerender" />
     </transition>
@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import Header from "./components/Header"
+// import Header from "./components/Header"
 export default {
   name: "App",
-  components:{Header}
+  components:{}
 };
 </script>
 
